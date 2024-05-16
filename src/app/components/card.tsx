@@ -74,7 +74,7 @@ const ContentCard: React.FC<FeedContent> = ({ id, imageUri, title, subTitle, aut
                         showReadMore && (
                             <Button
                                 size="small" 
-                                sx={{ padding: "0", textTransform: "lowercase" }} 
+                                sx={{ padding: "0", textTransform: "lowercase", fontSize: 11 }} 
                                 endIcon={<ReadMoreIcon />}
                                 color="secondary"
                             >
@@ -85,7 +85,7 @@ const ContentCard: React.FC<FeedContent> = ({ id, imageUri, title, subTitle, aut
                 </Typography>
                 <Stack direction={"row"} sx={{marginTop: "16px", alignItems: "center"}}>
                     <CommentIcon color="secondary" />
-                    <Typography sx={{ fontSize: 10, fontWeight: "bold" }}>
+                    <Typography sx={{ fontSize: 10, fontWeight: "bold", marginLeft: "8px" }}>
                         {numberOfComments} {numberOfComments > 1 ? 'Comments' : 'Comment'}
                     </Typography>
                     <ExpandMore
