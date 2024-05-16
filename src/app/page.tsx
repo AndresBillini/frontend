@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import FeedLayout from "./components/layout";
+import FeedLayout from "./components/feed-layout";
 import { FeedContent } from "./interfaces";
 
 const getContentFeed = async (): Promise<FeedContent[]> => {

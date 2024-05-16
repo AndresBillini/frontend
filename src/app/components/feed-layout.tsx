@@ -1,12 +1,13 @@
 import { Stack } from "@mui/material";
 import { FeedContent } from "../interfaces";
 import ContentCard from "./card";
+import { FC } from "react";
 
-interface FeedLayoutProps {
+interface Props {
     feed: FeedContent[];
 }
 
-const FeedLayout: React.FC<FeedLayoutProps> = ({ feed }) => {
+const FeedLayout: FC<Props> = ({ feed }) => {
     return (
         <Stack direction="column" sx={{ flexWrap: "wrap", rowGap: "24px", columnGap: "10px", justifyContent: "center", alignContent: "center" }}>
             {
