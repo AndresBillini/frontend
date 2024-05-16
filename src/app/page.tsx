@@ -3,7 +3,7 @@ import FeedLayout from "./components/feed-layout";
 import { FeedContent } from "./interfaces";
 
 const getContentFeed = async (): Promise<FeedContent[]> => {
-    console.log(process.env.NEXT_PUBLIC_API_URI);
+    console.log(process.env.NEXT_PUBLIC_API_URI, "hola");
     try {
         const data = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/content-feed`);
         const feed: FeedContent[] = await data.json();
@@ -14,7 +14,7 @@ const getContentFeed = async (): Promise<FeedContent[]> => {
     }
 };
 
-export default async function Post() {
+const Page = async () => {
     const feed: FeedContent[] = await getContentFeed();
     
     return (
@@ -29,3 +29,5 @@ export default async function Post() {
         </>
     );
 };
+
+export default Page;
