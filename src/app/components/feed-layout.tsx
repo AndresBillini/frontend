@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import { FeedContent } from "../interfaces";
-import ContentCard from "./card";
+import ContentCard from "./content-card";
 import { FC } from "react";
 
 interface Props {

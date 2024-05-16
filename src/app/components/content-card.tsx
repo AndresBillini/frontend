@@ -1,29 +1,13 @@
 'use client'
 
-import { styled } from '@mui/material/styles';
 import { Button, Card, CardContent, CardMedia, Stack, Typography, Collapse } from "@mui/material";
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import CommentIcon from '@mui/icons-material/Comment';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Comment, FeedContent } from "../interfaces";
 import { useCallback, useEffect, useState } from "react";
 import CommentContent from './comment-content';
+import ExpandInformation from './expand-information';
 
-interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-    }),
-}));
 
 const ContentCard: React.FC<FeedContent> = ({ id, imageUri, title, subTitle, author, content, numberOfComments, comments }) => {
     const [showReadMore, setShowReadMore] = useState<boolean>(false);
@@ -88,15 +72,7 @@ const ContentCard: React.FC<FeedContent> = ({ id, imageUri, title, subTitle, aut
                     <Typography sx={{ fontSize: 10, fontWeight: "bold", marginLeft: "8px" }}>
                         {numberOfComments} {numberOfComments > 1 ? 'Comments' : 'Comment'}
                     </Typography>
-                    <ExpandMore
-                        expand={expanded}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                        sx={{ marginLeft: "auto" }}
-                    >
-                        <ExpandMoreIcon />
-                    </ExpandMore>
+                    <ExpandInformation expanded={expanded} handleExpandClick={handleExpandClick} />
                 </Stack>
             </CardContent>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
