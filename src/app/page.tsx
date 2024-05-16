@@ -3,9 +3,8 @@ import FeedLayout from "./components/feed-layout";
 import { FeedContent } from "./interfaces";
 
 const getContentFeed = async (): Promise<FeedContent[]> => {
-    console.log(process.env.NEXT_PUBLIC_API_URI, "hola");
     try {
-        const data = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/content-feed`);
+        const data = await fetch('https://money-lion.onrender.com/api/content-feed');
         const feed: FeedContent[] = await data.json();
 
         return feed;
